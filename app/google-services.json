@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "248043836900",
+    "firebase_url": "https://doctair-92343.firebaseio.com",
+    "project_id": "doctair-92343",
+    "storage_bucket": "doctair-92343.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248043836900:android:c5cb25286c5ee5051ae3f1",
+        "android_client_info": {
+          "package_name": "com.app.doctair"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "248043836900-m0hvoav829n1up7t6tse9ch11a72fonj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.doctair",
+            "certificate_hash": "f825fed3b016111b8ae2a9121b02d9d2815c7dbe"
+          }
+        },
+        {
+          "client_id": "248043836900-fqpq0a0e08a2lfcpihdlbp3jf9v27msu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeSSNY5w54puwniOIM32uZyG32X01ZZnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "248043836900-fqpq0a0e08a2lfcpihdlbp3jf9v27msu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

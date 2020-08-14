@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/drImg"
+            android:src="@drawable/user"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/ic_video" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/drName"
+                android:text="sadsdasadad"
+                android:textSize="25sp"
+                android:textColor="#000"
+                android:fontFamily="@font/roboto"
+                android:layout_toRightOf="@+id/drImg"
+                android:layout_marginLeft="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/drDesignation"
+                android:layout_toRightOf="@+id/drImg"
+                android:layout_marginLeft="12dp"
+                android:layout_below="@+id/drName"
+                android:fontFamily="@font/roboto"
+                android:text="Pedia"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/drExp"
+                android:layout_toRightOf="@+id/drImg"
+                android:layout_marginLeft="12dp"
+                android:layout_below="@+id/drDesignation"
+                android:fontFamily="@font/roboto"
+                android:text="15 yes overall experience"
+                android:textSize="20sp"/>
+
+        </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#cdcdcd"
+                android:layout_marginTop="5dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="15dp"
+                    android:text="MBBS"
+                    android:id="@+id/drQuali"
+                    android:layout_marginTop="20dp"/>
+
+           <!--     <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:text="Mdfsdf sdfdsf sdfsf"
+                    android:id="@+id/drClinic"
+                    android:layout_marginTop="20dp"/>   -->
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="8dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:id="@+id/vidButton"
+                    android:text="Book video consult"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/video_but_back"
+                    android:textColor="#fff"
+                    android:textSize="12sp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:id="@+id/appointButton"
+                    android:text="Book appointment"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:background="@drawable/appointment_but_back"
+                    android:textColor="#fff"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/navigation_calendar"
+        android:icon="@drawable/ic_calendar"
+        android:title="Appointment"
+        tools:ignore="HardcodedText" />
+
+  <!--  <item
+        android:id="@+id/navigation_call"
+        android:icon="@drawable/ic_call"
+        android:title="Consult"
+        tools:ignore="HardcodedText" />  -->
+
+    <item
+        android:id="@+id/navigation_person"
+        android:icon="@drawable/ic_person"
+        android:title="Account"
+        tools:ignore="HardcodedText" />
+
+</menu>
