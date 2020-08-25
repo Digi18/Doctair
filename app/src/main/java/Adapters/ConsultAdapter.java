@@ -3,13 +3,8 @@ package Adapters;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,16 +19,10 @@ import com.app.doctair.R;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import Pojo.Appointments;
-import Pojo.Pays;
+import Pojo.Consultations;
 import Pojo.PresDownload;
 import Pojo.PrescriptionDownloadModel;
 import io.reactivex.Observer;
@@ -44,34 +33,35 @@ import remote.ApiService;
 import remote.RetrofitClient;
 import retrofit2.Retrofit;
 
-public class AppointAdapter extends RecyclerView.Adapter<AppointAdapter.ViewHolder> {
+public class ConsultAdapter extends RecyclerView.Adapter<ConsultAdapter.ViewHolder> {
 
     Context context;
-    List<Appointments> appointmentList;
-    List<PresDownload> presList = new ArrayList<>();
+    List<Consultations> myConsultations;
+    List<PresDownload> preList = new ArrayList<>();
 
-    public AppointAdapter(Context context, List<Appointments> appointmentList) {
+    public ConsultAdapter(Context context, List<Consultations> myConsultations) {
         this.context = context;
-        this.appointmentList = appointmentList;
+        this.myConsultations = myConsultations;
     }
 
     @NonNull
     @Override
-    public AppointAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ConsultAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-       View v = LayoutInflater.from(context).inflate(R.layout.appoint_row,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.consultation_row,parent,false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AppointAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ConsultAdapter.ViewHolder holder, int position) {
 
-        final Appointments model = appointmentList.get(position);
+        final Consultations model = myConsultations.get(position);
 
-        holder.appDate.setText(model.getAppointmentdate());
-        holder.appTime.setText(model.getAppointmenttime());
+        holder.docName.setText(model.getDoctorname());
+        holder.jioId.setText(model.getZoomid());
+        holder.phon.setText(model.getContactno());
 
-        holder.download.setOnClickListener(new View.OnClickListener() {
+        holder.down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -82,20 +72,21 @@ public class AppointAdapter extends RecyclerView.Adapter<AppointAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return appointmentList.size();
+        return myConsultations.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView appDate,appTime;
-        ImageView download;
+        TextView phon,docName,jioId;
+        ImageView down;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            appDate  = itemView.findViewById(R.id.appDate);
-            appTime = itemView.findViewById(R.id.appTime);
-            download = itemView.findViewById(R.id.download);
+           jioId = itemView.findViewById(R.id.jioId);
+           phon = itemView.findViewById(R.id.phon);
+           docName = itemView.findViewById(R.id.docName);
+           down = itemView.findViewById(R.id.down);
         }
     }
 
@@ -121,16 +112,16 @@ public class AppointAdapter extends RecyclerView.Adapter<AppointAdapter.ViewHold
                                           public void onNext(PrescriptionDownloadModel prescriptionDownloadModel) {
 
                                               prg.dismiss();
-                                              presList = prescriptionDownloadModel.getData();
+                                              preList = prescriptionDownloadModel.getData();
 
                                               int code = prescriptionDownloadModel.getCode();
 
                                               if(String.valueOf(code).equals("200")){
 
-                                                  String img = presList.get(0).getImage();
+                                                  String img = preList.get(0).getImage();
 
 
-                                               //   Toast.makeText(context,img,Toast.LENGTH_SHORT).show();
+                                                  //   Toast.makeText(context,img,Toast.LENGTH_SHORT).show();
                                                 /*  try {
 
                                                       prg.dismiss();
@@ -155,16 +146,17 @@ public class AppointAdapter extends RecyclerView.Adapter<AppointAdapter.ViewHold
                                                   Uri downloadUri = Uri.parse(downloadUrlOfImage);
                                                   DownloadManager.Request request = new DownloadManager.Request(downloadUri);
                                                   request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE | DownloadManager.Request.NETWORK_WIFI)
-                                                  .setTitle("Downloading " + img)
-                                                  .setMimeType("image/jpeg")
-                                                  .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                                                  .setDestinationInExternalFilesDir(context, String.valueOf(direct),img);
+                                                          .setTitle("Downloading " + img)
+                                                          .setMimeType("image/jpeg")
+                                                          .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                                                          .setDestinationInExternalFilesDir(context, String.valueOf(direct),img);
 
                                                   dm.enqueue(request);
                                               }
                                               else{
                                                   Toast.makeText(context,"No prescription found",Toast.LENGTH_SHORT).show();
                                               }
+
                                           }
 
                                           @Override
@@ -180,5 +172,6 @@ public class AppointAdapter extends RecyclerView.Adapter<AppointAdapter.ViewHold
 
                                           }
                                       });
+
     }
 }

@@ -7,10 +7,12 @@ import org.json.JSONObject;
 import Pojo.AppointmentsModel;
 import Pojo.BookingResponse;
 import Pojo.CityModel;
+import Pojo.ConsultationModel;
 import Pojo.DoctorModel;
 import Pojo.OnlineConsultResponse;
 import Pojo.PaymentModel;
 import Pojo.LoginResponseModel;
+import Pojo.PrescriptionDownloadModel;
 import Pojo.SpecialityModel;
 import Pojo.States;
 import io.reactivex.Observable;
@@ -65,4 +67,10 @@ public interface ApiService {
 
     @GET("get_myappointment")
     Observable<AppointmentsModel> getAppointments(@Query("userid") String userid);
+
+    @GET("get_myconsultant")
+    Observable<ConsultationModel> getConsultations(@Query("userid") String userid);
+
+    @GET("get_priscription")
+    Observable<PrescriptionDownloadModel> getPrescription(@Query("consultid") String consultid);
 }

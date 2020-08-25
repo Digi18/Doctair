@@ -67,23 +67,34 @@ public class MainActivity extends AppCompatActivity {
 
                         return true;
 
-                 /*   case R.id.navigation_call:
+                    case R.id.navigation_call:
 
                         ConsultFragment fragment1 = new ConsultFragment();
                         FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction1.replace(R.id.container,fragment1);
                         fragmentTransaction1.commit();
 
-                        ab.setTitle("Consult");
+                        ab.setTitle("Consultation");
 
-                        return true;  */
+                        return true;
+
+                    case R.id.navigation_appoint:
+
+                        AppointmentsFragment fragment2 = new AppointmentsFragment();
+                        FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction2.replace(R.id.container, fragment2);
+                        fragmentTransaction2.commit();
+
+                        ab.setTitle("Appointments");
+
+                        return true;
 
                     case R.id.navigation_person:
 
-                        AccountFragment fragment2 = new AccountFragment();
-                        FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction2.replace(R.id.container,fragment2);
-                        fragmentTransaction2.commit();
+                        AccountFragment fragment3 = new AccountFragment();
+                        FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction3.replace(R.id.container,fragment3);
+                        fragmentTransaction3.commit();
 
                         ab.setTitle("Account");
 

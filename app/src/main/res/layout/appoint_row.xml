@@ -77,13 +77,21 @@
          <RelativeLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:layout_marginBottom="8dp">
+             android:layout_marginBottom="5dp">
+
+             <ImageView
+                 android:layout_width="30dp"
+                 android:layout_height="30dp"
+                 android:id="@+id/download"
+                 android:layout_centerVertical="true"
+                 android:src="@drawable/ic_download"
+                 android:layout_marginLeft="10dp"/>
 
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="Payment status: "
-                 android:layout_marginTop="2dp"
+                 android:layout_centerVertical="true"
                  android:textStyle="bold"
                  android:layout_toLeftOf="@+id/status"/>
 
@@ -94,6 +102,7 @@
                  android:layout_marginRight="8dp"
                  android:id="@+id/status"
                  android:textSize="18sp"
+                 android:layout_centerVertical="true"
                  android:textColor="@android:color/holo_green_light"
                  android:layout_alignParentRight="true"/>
 

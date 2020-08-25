@@ -59,7 +59,7 @@ public class AccountFragment extends Fragment {
         profileName = view.findViewById(R.id.profileName);
         logOut = view.findViewById(R.id.logOut);
 
-        appointmentCard = view.findViewById(R.id.appointmentCard);
+       // appointmentCard = view.findViewById(R.id.appointmentCard);
         supportCard = view.findViewById(R.id.supportCard);
 
         fAuth = FirebaseAuth.getInstance();
@@ -85,14 +85,14 @@ public class AccountFragment extends Fragment {
             Glide.with(getContext()).load(photoUrl).apply(requestOptions).into(circleImage);
         }
 
-        appointmentCard.setOnClickListener(new View.OnClickListener() {
+      /*  appointmentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(),MyAppointments.class);
                 startActivity(i);
             //    getActivity().finish();
             }
-        });
+        }); */
 
         supportCard.setOnClickListener(new View.OnClickListener() {
             @Override
